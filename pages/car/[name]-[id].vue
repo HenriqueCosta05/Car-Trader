@@ -1,3 +1,14 @@
+<script setup>
+const route = useRoute();
+
+function toTitleCase(str) {
+    return str.replace(/\b\w/g, (char) => char.toUpperCase());
+  }
+useHead({
+  title: `${route.params.name ? toTitleCase(route.params.name) : `Car`} Details`
+})
+</script>
+
 <template>
   <div>
     <Navbar />
