@@ -1,24 +1,24 @@
 <script setup>
 const route = useRoute();
+const { toTitleCase } = useUtilities();
 
-function toTitleCase(str) {
-    return str.replace(/\b\w/g, (char) => char.toUpperCase());
-  }
+const make = Array.isArray(route.params.make) ? route.params.make[0] : route.params.make;
+const city = Array.isArray(route.params.city) ? route.params.city[0] : route.params.city;
+
 useHead({
-  title: `${route.params.name ? toTitleCase(route.params.name) : `Car`} Details`
+  title: `${make ? toTitleCase(make) : `Cars`} in ${toTitleCase(city)}`,
+});
+
+definePageMeta({
+  layout: 'custom'
 })
 </script>
 
 <template>
   <div>
-    <Navbar />
-    <div
-      class="mx-auto mt-4 max-w-7xl space-y-4 px-4 xs:px-8 sm:px-10 lg:px-16 pb-16 w-3/5"
-    >
       <CarDetailHero />
       <CarDetailAttributes />
       <CarDetailDescription />
       <CarDetailContact />
-    </div>
   </div>
 </template>
