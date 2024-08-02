@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core';
 
@@ -12,7 +10,6 @@ const handleFavoriteCars = (id: number) => {
   else favorite.value = { ...favorite.value, [id]: true };
 };
 </script>
->>>>>>> f33cb1a (bugfix: fixing yarn local issues)
 <template>
   <div>
     <CarCards />
